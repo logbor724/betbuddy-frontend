@@ -4,7 +4,7 @@ import requests
 from openai import OpenAI
 
 # ---------- API initialization, pulls upcoming game from sportsDB API ----------
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="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")
 
 @st.cache_data(ttl=3600)
 def get_upcoming_games(sport):
@@ -14,7 +14,7 @@ def get_upcoming_games(sport):
         "NBA": "4387",
         "MLB": "4424"
     }
-    url = f"https://www.thesportsdb.com/api/v1/json/3/eventsnextleague.php?id={league_ids[sport]}"
+    url = f"https://www.thesportsdb.com/api/v1/json/3/eventsnextleague.php?id=4391"
     response = requests.get(url)
     data = response.json()
     return data.get("events", [])
@@ -122,3 +122,4 @@ else:
 st.divider()
 st.write("**AI Analysis:**")
 st.write(st.session_state.analysis)
+
